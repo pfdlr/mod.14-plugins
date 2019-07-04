@@ -1,3 +1,4 @@
+'use strict';
 /* Flickity plugin */
 var elem = document.querySelector(".main-carousel");
 var flkty = new Flickity(elem, {
@@ -10,7 +11,7 @@ var flkty = new Flickity(elem, {
 });
 
 document.querySelector(".restart-button").addEventListener("click", function() {
-  flkty.selectCell(".first");
+  flkty.selectCell("#carousel-cell1");
 });
 
 var progressBar = document.querySelector(".progress-bar");

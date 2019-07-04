@@ -1,0 +1,76 @@
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@mixin shadow($top, $left, $blur, $color) {
+  box-shadow: $top $left $blur $color;
+}
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin v-center() {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+@mixin opacity-color($color, $opacity) {
+  background-color: rgba($color, $opacity);
+}
+@mixin all-width() {
+  [class*="col-"] {
+    width: 100%;
+    padding: 2px;
+    float: left;
+  }
+}
+@mixin btn($bg, $color, $x, $y, $radius) {
+  background-color: $bg;
+  color: $color;
+  width: $x;
+  height: $y;
+  border-radius: $radius;
+  @include v-center();
+}
+//* breke points */
+@mixin small {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: 680px) and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin iphone5 {
+  @media (max-height: 568px) {
+    @content;
+  }
+}
+@mixin largephones {
+  @media (min-height: 641px) {
+    @content;
+  }
+}

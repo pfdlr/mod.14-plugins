@@ -74,3 +74,8 @@
     @content;
   }
 }
+@mixin w1200 {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}

@@ -1,5 +1,16 @@
 @import "mixins";
-
+h3, p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+h3 {
+  font-size: 20px;
+}
+p {
+  font-size: 15px;
+  margin-left: 10px;
+  font-style: italic;
+}
 .carousel-cell {
   display: flex;
   align-items: center;
@@ -11,27 +22,17 @@
   background-size: cover;
   background-position-y: center;
   .container {
+    vertical-align: baseline;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 680px;
+    max-width: 1200px;
     position: absolute;
     bottom: 0;
     background-color: rgba(12, 74, 53, 0.58);
+    color: wheat;
     width: 100%;
-    height: 30px;
-    line-height: 30px;
-    a {
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 20px;
-      font-weight: bold;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      color: rgb(213, 252, 255);
-      &:hover {
-        color: rgb(100, 232, 255);
-      }
-    }
+    padding: 0 5px;
   }
 }
 button.restart-button {
@@ -47,11 +48,8 @@ button.restart-button {
   border: 0;
   border-radius: 2px;
   opacity: 0.8;
-  @include medium {
-    bottom: 54%;
-  }
-  @include small {
-    bottom: 54%;
+  @include w1200 {
+    top: 1%;
   }
   &:hover {
     background-color: rgb(46, 109, 46);

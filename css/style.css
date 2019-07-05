@@ -1,3 +1,7 @@
+body {
+  background-color: darkcyan;
+}
+
 h3, p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
@@ -76,9 +80,13 @@ button.restart-button:hover {
   height: 15px;
 }
 
-/*
-.carousel-cell.size-680 {
-  width: 785px;
+/*Gogle Maps*/
+#map {
+  display: -ms-flexbox;
+  display: flex;
+  height: 50vh;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
 }
-*/
 /*# sourceMappingURL=style.css.map */

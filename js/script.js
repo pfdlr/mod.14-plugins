@@ -1,7 +1,7 @@
 'use strict';
-(function () {
 
-  /* ___________________ Mustache ______________________________*/
+(function () {
+ /* ___________________ Mustache ______________________________*/
 
   var result = document.getElementById('result');
   var templatePhotos = document.getElementById('template-photos').innerHTML;
@@ -36,4 +36,16 @@
     progressBar.style.width = progress * 100 + "%";
   });
 
+   /* ___________________ Google Maps ___________________________*/
+// Initialize and add the map
+window.initMap = function() {
+  
+  // center map
+  var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: photos[0].coords});
+
+  // markers from photos.coords
+  for(var i= 0; i < photos.length; i++) {
+    var marker = new google.maps.Marker({position: photos[i].coords, map: map});    
+  }
+}
 })(); 

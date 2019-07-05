@@ -1,87 +1,84 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
+    <script src="https://kit.fontawesome.com/1cafd6b7fc.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendor/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/flickity.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>JS Plugins</title>
+  </head>
 
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
-  <script src="https://kit.fontawesome.com/1cafd6b7fc.js"></script>
-  <link rel="stylesheet" type="text/css" href="vendor/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/flickity.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-  <title>JS Plugins</title>
-</head>
+  <body>
+    <div id="result" class="main-carousel carousel" data-flickity='{ "hash": true }'></div>
+    <!-- SLIDER -->
+    <button class="restart-button">Restart</button>
+    <div class="progress-bar"></div>
+    <div id="map"></div>
+    <!-- Google Maps-->
 
-<body>
-  <div id="result" class="main-carousel carousel" data-flickity='{ "hash": true }'></div><!-- SLIDER -->
-  <button class="restart-button">Restart</button>
-  <div class="progress-bar"></div>
-  <div id="map">xxx</div> <!-- Google Maps-->
-
-
-  <!-- MUSTACHE TEMPLATE -->
-  <script id="template-photos" type="x-tmpl-mustache">
-    <div class="carousel-cell" id="{{ id }}" style="background-image: url({{ image }})" coords="{{ coords }}">
-      <div class="container"><h3>{{ name }}</h3>{{{ description }}}</div>
-    </div>
-</script>
-  <!-- Mustache Data -->
-  <script>
-    var photos = [
-      {
-        image: 'images/001.jpg',
-        name: 'Mons Klint - Denmark',
-        description: '<p>Mons Klint is a 6 km stretch of chalk cliffs along the eastern coast of the Danish island of Mon in the Baltic Sea.</p>',
-        id: 'carousel-cell1',
-        coords: {lat: 54.984, lng: 12.541}
-      },
-      {
-        image: 'images/002.jpg',
-        name: 'Copenhagen - Denmark',
-        description: '<p>MCopenhagen  is the capital and most populous city of Denmark.</p>',
-        id: 'carousel-cell2',
-        coords: {lat: 55.676, lng: 12.596}
-      },
-      {
-        image: 'images/003.jpg',
-        name: 'Hvar - Croatia',
-        description: '<p>Hvar is a Croatian island in the Adriatic Sea, located off the Dalmatian coast.</p>',
-        id: 'carousel-cell3',
-        coords: {lat: 43.172, lng: 16.439}
-      },
-      {
-        image: 'images/004.jpg',
-        name: 'Lofoten - Norway',
-        description: '<p>Lofoten is an archipelago and a traditional district in the county of Nordland, Norway.</p>',
-        id: 'carousel-cell4',
-        coords: {lat: 68.264, lng: 13.565}
-      },
-      {
-        image: 'images/005.jpg',
-        name: 'Gudhjem - Bornholm',
-        description: '<p>Gudhjem is a small town and fishing port on the northern coast of the Baltic island of Bornholm, Denmark</p>',
-        id: 'carousel-cell5',
-        coords: {lat: 55.211, lng: 14.970}
-      },
-      {
-        image: 'images/006.jpg',
-        name: 'Heiligenhafen - Germany',
-        description: '<p> It is situated on the Baltic Sea coast, opposite the island Fehmarn, approx. 60 km northeast of Lübeck.</p>',
-        id: 'carousel-cell6',
-        coords: {lat: 54.377, lng: 10.982}
-      }
-    ]
-  </script>
-
-  <!-- Scripts-->
-  <script type="text/javascript" src="vendor/flickity.pkgd.min.js" media="screen"></script>
-  <script type="text/javascript" src="vendor/hash.js" media="screen"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI2IuaSp9MjxqKw7snVO5jE_fcGqiZ-Mw&callback=initMap">
+    <!-- MUSTACHE TEMPLATE -->
+    <script id="template-photos" type="x-tmpl-mustache">
+      <div class="carousel-cell" id="{{ id }}" style="background-image: url({{ image }})" coords="{{ coords }}">
+        <div class="container"><h3>{{ name }}</h3>{{{ description }}}</div>
+      </div>
+    </script>
+    <!-- Mustache Data -->
+    <script>
+      var photos = [
+        {
+          image: "images/001.jpg",
+          name: "Mons Klint - Denmark",
+          description: "<p>Mons Klint is a 6 km stretch of chalk cliffs along the eastern coast of the Danish island of Mon in the Baltic Sea.</p>",
+          id: "carousel-cell1",
+          coords: { lat: 54.984, lng: 12.541 }
+        },
+        {
+          image: "images/002.jpg",
+          name: "Copenhagen - Denmark",
+          description: "<p>MCopenhagen  is the capital and most populous city of Denmark.</p>",
+          id: "carousel-cell2",
+          coords: { lat: 55.676, lng: 12.596 }
+        },
+        {
+          image: "images/003.jpg",
+          name: "Hvar - Croatia",
+          description: "<p>Hvar is a Croatian island in the Adriatic Sea, located off the Dalmatian coast.</p>",
+          id: "carousel-cell3",
+          coords: { lat: 43.172, lng: 16.439 }
+        },
+        {
+          image: "images/004.jpg",
+          name: "Lofoten - Norway",
+          description: "<p>Lofoten is an archipelago and a traditional district in the county of Nordland, Norway.</p>",
+          id: "carousel-cell4",
+          coords: { lat: 68.264, lng: 13.565 }
+        },
+        {
+          image: "images/005.jpg",
+          name: "Gudhjem - Bornholm",
+          description: "<p>Gudhjem is a small town and fishing port on the northern coast of the Baltic island of Bornholm, Denmark</p>",
+          id: "carousel-cell5",
+          coords: { lat: 55.211, lng: 14.97 }
+        },
+        {
+          image: "images/006.jpg",
+          name: "Heiligenhafen - Germany",
+          description: "<p> It is situated on the Baltic Sea coast, opposite the island Fehmarn, approx. 60 km northeast of Lübeck.</p>",
+          id: "carousel-cell6",
+          coords: { lat: 54.377, lng: 10.982 }
+        }
+      ];
     </script>
 
-</body>
-
+    <!-- Scripts-->
+    <script type="text/javascript" src="vendor/flickity.pkgd.min.js" media="screen"></script>
+    <script type="text/javascript" src="vendor/hash.js" media="screen"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI2IuaSp9MjxqKw7snVO5jE_fcGqiZ-Mw&callback=initMap"></script>
+  </body>
 </html>

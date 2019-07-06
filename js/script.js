@@ -37,6 +37,40 @@ flkty.on("scroll", function(progress) {
 });
 
 /* ___________________ Google Maps ___________________________*/
+
+/* ________________________ For very ambitious ___________________ */
+window.initMap = function() {
+  var map = new google.maps.Map(document.getElementById("map"), { zoom: 3, center: photos[0].coords });
+
+  function go(index) {
+    map.panTo(photos[index].coords);
+    map.setZoom(7);
+  }
+
+  function start() {
+    flkty.on("change", go);
+  }
+
+  function stop() {
+    flkty.off("change", go);
+  }
+
+  start();
+
+  for (let i = 0; i < photos.length; i++) {
+    var marker = new google.maps.Marker({
+      position: photos[i].coords,
+      map: map
+    });
+    marker.addListener("click", function() {
+      stop();
+      flkty.selectCell(document.getElementsByClassName("carousel-cell")[i]);
+      start();
+    });
+  }
+
+  /* _________________________ 14.4. Połączenie dwóch pluginów ___________________________*/
+  /* 
 // Initialize and add the map
 window.initMap = function() {
   // center map
@@ -55,13 +89,15 @@ window.initMap = function() {
   }
   //center the map after changing the slide
   flkty.on("change", function(index) {
-    /* basic
+    // basic
     map.panTo(photos[index].coords);
     map.setZoom(10);
-    */
+    //
     //KODILLA code
     smoothPanAndZoom(map, 8, photos[index].coords);
   });
+  */
+
   /* _____________________Funkcja KODILLI_________________________________ */
   var smoothPanAndZoom = function(map, zoom, coords) {
     var jumpZoom = zoom - Math.abs(map.getZoom() - zoom);
